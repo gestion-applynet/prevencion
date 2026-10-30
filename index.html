@@ -18,11 +18,17 @@
            padding-top: env(safe-area-inset-top); box-sizing: border-box; background: #121A3D; }
   .aviso { position: fixed; inset: auto 0 0 0; padding: 14px; text-align: center; font: 14px system-ui, sans-serif; color: #C9CFE6; }
   .aviso a { color: #F28C28; }
+  #carga { position: fixed; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+           background: #121A3D; color: #C9CFE6; font: 16px system-ui, sans-serif; transition: opacity .4s; }
+  #carga img { width: 96px; height: 96px; border-radius: 22px; }
+  #carga i { width: 34px; height: 34px; border: 4px solid rgba(255,255,255,.2); border-top-color: #F28C28; border-radius: 50%; animation: g 1s linear infinite; }
+  @keyframes g { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 <!-- La app de Google Apps Script se muestra aquí dentro, con el ícono y el nombre de APPLY-NET -->
-<iframe src="https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec" title="Prevención APPLY-NET" allow="geolocation *; camera *; microphone *; clipboard-write *; fullscreen *"></iframe>
+<div id="carga"><img src="icono-192.png" alt=""><i></i><span>Cargando…</span></div>
+<iframe onload="var c=document.getElementById('carga');c.style.opacity=0;setTimeout(function(){c.remove()},450)" src="https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec" title="Prevención APPLY-NET" allow="geolocation *; camera *; microphone *; clipboard-write *; fullscreen *"></iframe>
 <noscript><p class="aviso">Si no carga, abre <a href="https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec">este enlace</a>.</p></noscript>
 </body>
 </html>
