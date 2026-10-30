@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panel Prevención APPLY-NET</title>
+<meta name="theme-color" content="#121A3D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Panel APPLY-NET">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+  html, body { margin: 0; height: 100%; background: #121A3D; overflow: hidden; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block;
+           padding-top: env(safe-area-inset-top); box-sizing: border-box; background: #121A3D; }
+  .aviso { position: fixed; inset: auto 0 0 0; padding: 14px; text-align: center; font: 14px system-ui, sans-serif; color: #C9CFE6; }
+  .aviso a { color: #F28C28; }
+  #carga { position: fixed; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+           background: #121A3D; color: #C9CFE6; font: 16px system-ui, sans-serif; transition: opacity .4s; }
+  #carga img { width: 96px; height: 96px; border-radius: 22px; }
+  #carga i { width: 34px; height: 34px; border: 4px solid rgba(255,255,255,.2); border-top-color: #F28C28; border-radius: 50%; animation: g 1s linear infinite; }
+  @keyframes g { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<!-- La app de Google Apps Script se muestra aquí dentro, con el ícono y el nombre de APPLY-NET -->
+<div id="carga"><img src="icono-192.png" alt=""><i></i><span>Cargando…</span></div>
+<script>(function(){var F=['Ajustando el casco…','Revisando el arnés…','Conectando el Choapa…','Buscando señal…','Desenrollando la fibra…','Contando los conos…','Calentando el café…','Seguridad primero, ya casi…'],i=Math.floor(Math.random()*F.length);
+var t=setInterval(function(){var m=document.querySelector('#carga span');if(!m){clearInterval(t);return}m.textContent=F[i++%F.length]},2000)})();</script>
+<iframe onload="var c=document.getElementById('carga');c.style.opacity=0;setTimeout(function(){c.remove()},450)" src="https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec?p=admin" title="Panel Prevención APPLY-NET" allow="geolocation *; camera *; microphone *; clipboard-write *; fullscreen *"></iframe>
+<script>(function(){var m=location.hash.match(/c=([A-Za-z0-9]+)/);if(!m)return;var f=document.querySelector('iframe');f.src=f.src.split('#')[0]+(f.src.indexOf('?')<0?'?':'&')+'c='+m[1];try{history.replaceState(null,'',location.pathname)}catch(e){}})();</script>
+<noscript><p class="aviso">Si no carga, abre <a href="https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec?p=admin">este enlace</a>.</p></noscript>
+</body>
+</html>
