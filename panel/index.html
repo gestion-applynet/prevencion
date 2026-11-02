@@ -34,7 +34,7 @@ var t=setInterval(function(){var m=document.querySelector('#carga span');if(!m){
 <script>(function(){
   var u='https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec',src=u+'?p=admin';
   var m=location.hash.match(/c=([A-Za-z0-9]+)/);
-  if(m){src+='&c='+m[1];try{history.replaceState(null,'',location.pathname)}catch(e){}}
+  if(m){src+='&k='+m[1];try{history.replaceState(null,'',location.pathname)}catch(e){}}
   // Precarga oculta: Google a veces falla en la primera carga; esto hace el "recargar" solo.
   var listo=false,w=document.createElement('iframe');w.style.display='none';
   function ir(){if(listo)return;listo=true;document.querySelector('iframe').src=src;setTimeout(function(){w.remove()},3000)}
