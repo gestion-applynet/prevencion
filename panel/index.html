@@ -30,8 +30,17 @@
 <div id="carga"><div class="anillo"><img src="../logo-carga.jpg" alt=""><i></i></div><span>Cargando…</span></div>
 <script>(function(){var F=['Ajustando el casco…','Revisando el arnés…','Conectando el Choapa…','Buscando señal…','Desenrollando la fibra…','Contando los conos…','Calentando el café…','Seguridad primero, ya casi…'],i=Math.floor(Math.random()*F.length);
 var t=setInterval(function(){var m=document.querySelector('#carga span');if(!m){clearInterval(t);return}m.textContent=F[i++%F.length]},2000)})();</script>
-<iframe onload="var c=document.getElementById('carga');c.style.opacity=0;setTimeout(function(){c.remove()},450)" src="https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec?p=admin" title="Panel Prevención APPLY-NET" allow="geolocation *; camera *; microphone *; clipboard-write *; fullscreen *"></iframe>
-<script>(function(){var m=location.hash.match(/c=([A-Za-z0-9]+)/);if(!m)return;var f=document.querySelector('iframe');f.src=f.src.split('#')[0]+(f.src.indexOf('?')<0?'?':'&')+'c='+m[1];try{history.replaceState(null,'',location.pathname)}catch(e){}})();</script>
+<iframe onload="if(!this.src)return;var c=document.getElementById('carga');if(c){c.style.opacity=0;setTimeout(function(){c.remove()},450)}" title="Panel Prevención APPLY-NET" allow="geolocation *; camera *; microphone *; clipboard-write *; fullscreen *"></iframe>
+<script>(function(){
+  var u='https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec',src=u+'?p=admin';
+  var m=location.hash.match(/c=([A-Za-z0-9]+)/);
+  if(m){src+='&c='+m[1];try{history.replaceState(null,'',location.pathname)}catch(e){}}
+  // Precarga oculta: Google a veces falla en la primera carga; esto hace el "recargar" solo.
+  var listo=false,w=document.createElement('iframe');w.style.display='none';
+  function ir(){if(listo)return;listo=true;document.querySelector('iframe').src=src;setTimeout(function(){w.remove()},3000)}
+  w.onload=function(){setTimeout(ir,300)};setTimeout(ir,8000);
+  w.src=u+'?p=ping';document.body.appendChild(w);
+})();</script>
 <noscript><p class="aviso">Si no carga, abre <a href="https://script.google.com/macros/s/AKfycbxa8Q3m3mMfz7a2W1ZrcAss1dMlR0ekkygAhk0Bsc6snt1Qj5V7ei-t34nGEhhp-Y1Ldg/exec?p=admin">este enlace</a>.</p></noscript>
 </body>
 </html>
